@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.advanceduiapp.databinding.FragmentSlideshowBinding
+import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
-class SlideshowFragment : Fragment() {
+class PagerFragment(private val imageResource: Int, private val title: String) : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
+    private var _binding: FragmentPagerBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,21 +21,25 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        ViewModelProvider(this)[PagerViewModel::class.java]
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentPagerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        binding.textSlideshow.text = title
+
+        binding.pagerImageView.setImageResource(imageResource)
+
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        fun newInstance(imageResource: Int, title: String):PagerFragment =
+            PagerFragment(imageResource, title)
     }
 }
