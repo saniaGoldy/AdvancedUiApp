@@ -6,18 +6,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.example.advanceduiapp.ui.slideshow.PagerFragment
-
-const val NUM_PAGES = 3
+import com.example.advanceduiapp.ui.pager.PagerFragment
 
 class PagerActivity : AppCompatActivity() {
-    val imageMap = listOf<Pair<String, Int>>(
-        "CyberCiri" to R.drawable.cybercyri,
-        "Geralt and Ciri" to R.drawable.the_witcher_3_wild_hunt_geralt_of_rivia_sword_ciri_wallpaper_preview,
-        "Harley Qeen" to R.drawable.harley_quinn___valentine_s_day_lingerie_by_hugotendaz_on_deviantart
-    )
-
-    lateinit var pager: ViewPager
+    private lateinit var pager: ViewPager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +31,17 @@ class PagerActivity : AppCompatActivity() {
 
     inner class ImagePagerAdapter(fragmentManager: FragmentManager) :
         FragmentStatePagerAdapter(fragmentManager) {
-        override fun getCount(): Int = NUM_PAGES
-
+        override fun getCount(): Int = imageMap.size
         override fun getItem(position: Int): Fragment =
             PagerFragment.newInstance(imageMap[position].second, imageMap[position].first)
+
+    }
+
+    companion object{
+        val imageMap = listOf(
+            "CyberCiri" to R.drawable.cybercyri,
+            "Geralt and Ciri" to R.drawable.the_witcher_3_wild_hunt_geralt_of_rivia_sword_ciri_wallpaper_preview,
+            "Harley Qeen" to R.drawable.harley_quinn___valentine_s_day_lingerie_by_hugotendaz_on_deviantart
+        )
     }
 }

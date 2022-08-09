@@ -2,10 +2,18 @@ package com.example.advanceduiapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.advanceduiapp.data.RecyclerViewAdapter
+import com.example.advanceduiapp.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity() {
+    private val data = PagerActivity.imageMap
+    private lateinit var binding:ActivityListBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
+        binding = ActivityListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportActionBar?.hide()
+        binding.imagesList.adapter = RecyclerViewAdapter(data)
     }
 }
