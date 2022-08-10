@@ -17,4 +17,8 @@
     <string name="go_to_frag4">Go To Frag4</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvitem_text">TvItem</string>
+    <string name="item_button">Item Button</string>
+    <string name="butcher_greeting">Oi</string>
+    <string name="homelander_phrase">You\'re the real hero</string>
 </resources>
