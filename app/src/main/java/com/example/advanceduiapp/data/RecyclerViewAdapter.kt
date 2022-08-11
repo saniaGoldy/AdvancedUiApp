@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
-class RecyclerViewAdapter(private val data: List<Pair<String, Int>>) :
+class RecyclerViewAdapter(private val data: List<PageData>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
@@ -22,9 +22,9 @@ class RecyclerViewAdapter(private val data: List<Pair<String, Int>>) :
         private val itemTitle = binding.textSlideshow
         private val itemImage = binding.pagerImageView
 
-        fun bind(item: Pair<String, Int>) {
-            itemTitle.text = item.first
-            itemImage.setImageResource(item.second)
+        fun bind(item: PageData) {
+            itemTitle.text = item.title
+            itemImage.setImageResource(item.resourceId)
         }
     }
 }

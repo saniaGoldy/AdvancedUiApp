@@ -9,7 +9,7 @@ import com.example.advanceduiapp.databinding.FragmentPagerBinding
 import com.example.advanceduiapp.databinding.TvItemBinding
 
 class MultipleViewRecyclerAdapter(
-    private val pageData: List<Pair<String, Int>>,
+    private val pageData: List<PageData>,
     private val textData: List<String>,
     private val buttonActionsData: List<() -> Unit>
 ) : Adapter<ViewHolder>() {
@@ -48,9 +48,9 @@ class MultipleViewRecyclerAdapter(
         private val itemTitle = binding.textSlideshow
 
         private val itemImage = binding.pagerImageView
-        fun bind(item: Pair<String, Int>) {
-            itemTitle.text = item.first
-            itemImage.setImageResource(item.second)
+        fun bind(item: PageData) {
+            itemTitle.text = item.title
+            itemImage.setImageResource(item.resourceId)
         }
     }
 

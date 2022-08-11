@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
+import com.example.advanceduiapp.data.PageData
 import com.example.advanceduiapp.databinding.ActivityPagerBinding
 import com.example.advanceduiapp.ui.pager.PagerFragment
 import com.example.advanceduiapp.ui.pager.RecyclerViewModel
@@ -37,7 +38,7 @@ class PagerActivity : AppCompatActivity() {
         model.showFrag4.observe(this, transitionStartedObserver)
     }
 
-    fun showRecyclerFragment(){
+    private fun showRecyclerFragment(){
         binding.viewPager.visibility = View.GONE
         binding.fragmentContainerView.visibility = View.VISIBLE
     }
@@ -56,21 +57,21 @@ class PagerActivity : AppCompatActivity() {
         override fun getItem(position: Int): Fragment {
             return if (position == count - 1)
                 PagerFragment.newInstance(
-                    imageMap[position].second,
-                    imageMap[position].first,
+                    imageMap[position].resourceId,
+                    imageMap[position].title,
                     true
                 )
             else
-                PagerFragment.newInstance(imageMap[position].second, imageMap[position].first)
+                PagerFragment.newInstance(imageMap[position].resourceId, imageMap[position].title)
         }
 
     }
 
     companion object{
         val imageMap = listOf(
-            "CyberCiri" to R.drawable.cybercyri,
-            "Geralt and Ciri" to R.drawable.the_witcher_3_wild_hunt_geralt_of_rivia_sword_ciri_wallpaper_preview,
-            "Harley Qeen" to R.drawable.harley_quinn___valentine_s_day_lingerie_by_hugotendaz_on_deviantart
+            PageData("CyberCiri", R.drawable.cybercyri),
+            PageData("Geralt and Ciri", R.drawable.the_witcher_3_wild_hunt_geralt_of_rivia_sword_ciri_wallpaper_preview),
+            PageData("Harley Qeen", R.drawable.harley_quinn___valentine_s_day_lingerie_by_hugotendaz_on_deviantart)
         )
     }
 }
