@@ -14,7 +14,6 @@ class MultipleViewRecyclerAdapter(
     private val buttonActionsData: List<() -> Unit>
 ) : Adapter<ViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when(viewType){
             0 -> PageViewHolder(FragmentPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false))

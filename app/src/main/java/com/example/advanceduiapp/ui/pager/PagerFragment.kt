@@ -9,12 +9,9 @@ import androidx.fragment.app.activityViewModels
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
 class PagerFragment(private val imageResource: Int, private val title: String, private val showButton: Boolean) : Fragment() {
-
-    private var _binding: FragmentPagerBinding? = null
     private val model: RecyclerViewModel by activityViewModels()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentPagerBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,11 +20,15 @@ class PagerFragment(private val imageResource: Int, private val title: String, p
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPagerBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        binding.textSlideshow.text = title
-
-        binding.pagerImageView.setImageResource(imageResource)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        with(binding){
+            textSlideshow.text = title
+            pagerImageView.setImageResource(imageResource)
+        }
 
         if (showButton) {
             binding.button.visibility = View.VISIBLE
@@ -35,8 +36,6 @@ class PagerFragment(private val imageResource: Int, private val title: String, p
                 model.showFrag4.value = true
             }
         }
-
-        return root
     }
 
     override fun onDestroyView() {

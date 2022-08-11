@@ -8,7 +8,6 @@ import com.example.advanceduiapp.databinding.FragmentPagerBinding
 class RecyclerViewAdapter(private val data: List<Pair<String, Int>>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         FragmentPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
@@ -28,5 +27,4 @@ class RecyclerViewAdapter(private val data: List<Pair<String, Int>>) :
             itemImage.setImageResource(item.second)
         }
     }
-
 }

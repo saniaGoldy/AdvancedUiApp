@@ -11,7 +11,6 @@ import com.example.advanceduiapp.R
 import com.example.advanceduiapp.data.MultipleViewRecyclerAdapter
 import com.example.advanceduiapp.databinding.FragmentMultipleViewRecyclerBinding
 
-
 class MultipleViewRecyclerFragment : Fragment() {
     private val textData = listOf<String>("some string", "Oi cunt", "wakee wakee", "mornin'")
     private val pageData = PagerActivity.imageMap
