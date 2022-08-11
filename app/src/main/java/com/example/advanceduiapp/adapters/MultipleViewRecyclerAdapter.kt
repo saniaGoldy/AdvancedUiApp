@@ -4,10 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.*
-import com.example.advanceduiapp.data.ItemData
-import com.example.advanceduiapp.data.PageData
-import com.example.advanceduiapp.data.TextData
-import com.example.advanceduiapp.data.ToastButtonData
+import com.example.advanceduiapp.data.*
 import com.example.advanceduiapp.databinding.ButtonItemBinding
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 import com.example.advanceduiapp.databinding.TvItemBinding
@@ -18,14 +15,14 @@ class MultipleViewRecyclerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when(viewType){
-            0 -> PageViewHolder(FragmentPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            1 -> TVViewHolder(TvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            DataTypes.Page.typeId -> PageViewHolder(FragmentPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            DataTypes.Text.typeId -> TVViewHolder(TvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             else -> ButtonViewHolder(ButtonItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return itemData[position].getType()
+        return itemData[position].getType().typeId
     }
 
     override fun getItemCount(): Int {
