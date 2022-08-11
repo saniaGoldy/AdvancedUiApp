@@ -16,7 +16,7 @@ import com.example.advanceduiapp.databinding.FragmentMultipleViewRecyclerBinding
 
 class MultipleViewRecyclerFragment : Fragment() {
     private val itemsData
-        get() = listOf<ItemData>(
+        get() = listOf(
             PageData(
                 "harley",
                 R.drawable.harley_quinn___valentine_s_day_lingerie_by_hugotendaz_on_deviantart
