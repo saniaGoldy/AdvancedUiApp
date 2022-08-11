@@ -6,6 +6,7 @@ import com.example.advanceduiapp.data.RecyclerViewAdapter
 import com.example.advanceduiapp.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity() {
+
     private val data = PagerActivity.imageMap
     private lateinit var binding:ActivityListBinding
 

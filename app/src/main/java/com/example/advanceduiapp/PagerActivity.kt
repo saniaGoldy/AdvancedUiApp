@@ -12,12 +12,12 @@ import androidx.viewpager.widget.ViewPager
 import com.example.advanceduiapp.data.PageData
 import com.example.advanceduiapp.databinding.ActivityPagerBinding
 import com.example.advanceduiapp.ui.pager.PagerFragment
-import com.example.advanceduiapp.ui.pager.RecyclerViewModel
+import com.example.advanceduiapp.ui.pager.PagerViewModel
 
 class PagerActivity : AppCompatActivity() {
     private lateinit var pager: ViewPager
     private lateinit var binding: ActivityPagerBinding
-    private val model: RecyclerViewModel by viewModels()
+    private val model: PagerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class PagerActivity : AppCompatActivity() {
             }
         }
 
-        model.showFrag4.observe(this, transitionStartedObserver)
+        model.showMultipleViewRecyclerFragment.observe(this, transitionStartedObserver)
     }
 
     private fun showRecyclerFragment(){

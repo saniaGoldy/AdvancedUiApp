@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
 class PagerFragment(private val imageResource: Int, private val title: String, private val showButton: Boolean) : Fragment() {
-    private val model: RecyclerViewModel by activityViewModels()
+    private val model: PagerViewModel by activityViewModels()
 
     private var _binding: FragmentPagerBinding? = null
     private val binding get() = _binding!!
@@ -33,7 +33,7 @@ class PagerFragment(private val imageResource: Int, private val title: String, p
         if (showButton) {
             binding.button.visibility = View.VISIBLE
             binding.button.setOnClickListener {
-                model.showFrag4.value = true
+                model.showMultipleViewRecyclerFragment.value = true
             }
         }
     }
