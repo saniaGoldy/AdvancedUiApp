@@ -26,7 +26,7 @@ class PagerActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         pager = findViewById(R.id.view_pager)
-        val pagerAdapter = ImagePagerAdapter(supportFragmentManager, imageMap)
+        val pagerAdapter = ImagePagerAdapter(supportFragmentManager, viewModel.imageMap)
         pager.adapter = pagerAdapter
 
         viewModel.showMultipleViewRecyclerFragment.observe(this) {
@@ -59,13 +59,5 @@ class PagerActivity : AppCompatActivity() {
                 PagerFragment.newInstance(imageData[position].resourceId, imageData[position].title)
         }
 
-    }
-
-    companion object{
-        val imageMap = listOf(
-            PageData("CyberCiri", R.drawable.cybercyri),
-            PageData("Geralt and Ciri", R.drawable.the_witcher_3_wild_hunt_geralt_of_rivia_sword_ciri_wallpaper_preview),
-            PageData("Harley Qeen", R.drawable.harley_quinn___valentine_s_day_lingerie_by_hugotendaz_on_deviantart)
-        )
     }
 }
