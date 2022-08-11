@@ -2,7 +2,7 @@ package com.example.advanceduiapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.advanceduiapp.data.RecyclerViewAdapter
+import com.example.advanceduiapp.adapters.RecyclerViewAdapter
 import com.example.advanceduiapp.databinding.ActivityListBinding
 
 class ListActivity : AppCompatActivity() {

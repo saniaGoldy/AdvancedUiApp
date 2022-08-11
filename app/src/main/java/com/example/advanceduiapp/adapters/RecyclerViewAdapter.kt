@@ -1,8 +1,9 @@
-package com.example.advanceduiapp.data
+package com.example.advanceduiapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.advanceduiapp.data.PageData
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
 class RecyclerViewAdapter(private val data: List<PageData>) :

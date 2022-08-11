@@ -1,17 +1,19 @@
-package com.example.advanceduiapp.data
+package com.example.advanceduiapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.*
+import com.example.advanceduiapp.data.ItemData
+import com.example.advanceduiapp.data.PageData
+import com.example.advanceduiapp.data.TextData
+import com.example.advanceduiapp.data.ToastButtonData
 import com.example.advanceduiapp.databinding.ButtonItemBinding
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 import com.example.advanceduiapp.databinding.TvItemBinding
 
 class MultipleViewRecyclerAdapter(
-    private val pageData: List<PageData>,
-    private val textData: List<String>,
-    private val buttonActionsData: List<() -> Unit>
+    private val itemData: List<ItemData>
 ) : Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,22 +25,18 @@ class MultipleViewRecyclerAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(position){
-            in 0..pageData.lastIndex -> 0
-            in pageData.size..(pageData.size+textData.lastIndex) -> 1
-            else -> 2
-        }
+        return itemData[position].getType()
     }
 
     override fun getItemCount(): Int {
-        return pageData.size + textData.size + buttonActionsData.size
+        return itemData.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        when(holder.itemViewType){
-            0 -> (holder as PageViewHolder).bind(pageData[position])
-            1 -> (holder as TVViewHolder).bind(textData[position - pageData.size])
-            else -> (holder as ButtonViewHolder).bind { buttonActionsData[position - pageData.size - textData.size] }
+        when (holder.itemViewType) {
+            0 -> (holder as PageViewHolder).bind(itemData[position] as PageData)
+            1 -> (holder as TVViewHolder).bind(itemData[position] as TextData)
+            else -> (holder as ButtonViewHolder).bind(itemData[position] as ToastButtonData)
         }
     }
 
@@ -56,15 +54,15 @@ class MultipleViewRecyclerAdapter(
 
     inner class TVViewHolder(binding: TvItemBinding): ViewHolder(binding.root){
         private val itemTV = binding.itemTV
-        fun bind(item: String){
-            itemTV.text = item
+        fun bind(item: TextData){
+            itemTV.text = item.text
         }
     }
 
-    inner class ButtonViewHolder(binding: ButtonItemBinding): ViewHolder(binding.root){
+    inner class ButtonViewHolder(binding: ButtonItemBinding): ViewHolder(binding.root) {
         private val itemButton = binding.itemButton
-        fun bind(item: ()->Unit){
-            itemButton.setOnClickListener { item.invoke() }
+        fun bind(item: ToastButtonData) {
+            itemButton.setOnClickListener { Toast.makeText(item.context, item.message, Toast.LENGTH_SHORT).show() }
         }
     }
 }
