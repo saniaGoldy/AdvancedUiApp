@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
 class PagerFragment : Fragment() {
-    private val model: PagerViewModel by activityViewModels()
+    private val viewModel: PagerViewModel by activityViewModels()
 
     private var _binding: FragmentPagerBinding? = null
     private val binding get() = _binding!!
@@ -27,14 +27,14 @@ class PagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding){
-            textSlideshow.text = requireArguments().get(titleTag) as String
-            pagerImageView.setImageResource(requireArguments().get(imageResourceTag) as Int)
+            textSlideshow.text = requireArguments().getString(titleTag)
+            pagerImageView.setImageResource(requireArguments().getInt(imageResourceTag))
         }
 
-        if (requireArguments().get(showButtonTag) as Boolean) {
+        if (requireArguments().getBoolean(showButtonTag)) {
             binding.button.visibility = View.VISIBLE
             binding.button.setOnClickListener {
-                model.showMultipleViewRecyclerFragment.value = true
+                viewModel.switchRecyclerFragmentVisibility()
             }
         }
     }

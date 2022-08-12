@@ -1,5 +1,3 @@
 package com.example.advanceduiapp.data
 
-data class TextData(val text: String): ItemData {
-    override fun getType() = DataTypes.Text
-}
+data class TextData(val text: String, override val type: ViewType = ViewType.Text): ItemData

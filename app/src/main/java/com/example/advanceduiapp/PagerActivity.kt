@@ -25,7 +25,7 @@ class PagerActivity : AppCompatActivity() {
 
         viewModel.showMultipleViewRecyclerFragment.observe(this) { showMultipleViewRecycler: Boolean ->
             if (showMultipleViewRecycler) {
-                showRecyclerFragment()
+                swapPagerWithRecycler()
             }
         }
 
@@ -38,31 +38,25 @@ class PagerActivity : AppCompatActivity() {
         binding.viewPager.adapter = ImagePagerAdapter(supportFragmentManager, imageMap)
     }
 
-    private fun showRecyclerFragment(){
-        binding.viewPager.isVisible = false
-        binding.fragmentContainerView.isVisible = true
+    private fun swapPagerWithRecycler(){
+        binding.viewPager.isVisible = !binding.viewPager.isVisible
+        binding.fragmentContainerView.isVisible = !binding.fragmentContainerView.isVisible
     }
 
-    override fun onBackPressed() {
-        with(binding){
-            if (viewPager.currentItem == 0 || binding.fragmentContainerView.isVisible) super.onBackPressed() else viewPager.currentItem =
-                viewPager.currentItem - 1
-        }
+    override fun onBackPressed() = with(binding){
+        if (viewPager.currentItem == 0 ) super.onBackPressed()
+        else if(binding.fragmentContainerView.isVisible) swapPagerWithRecycler()
+        else viewPager.currentItem = viewPager.currentItem - 1
     }
 
     inner class ImagePagerAdapter(fragmentManager: FragmentManager, private val imageData: List<PageData>) :
         FragmentStatePagerAdapter(fragmentManager) {
         override fun getCount(): Int = imageData.size
-        override fun getItem(position: Int): Fragment {
-            return if (position == count - 1)
-                PagerFragment.newInstance(
-                    imageData[position].resourceId,
-                    imageData[position].title,
-                    true
-                )
-            else
-                PagerFragment.newInstance(imageData[position].resourceId, imageData[position].title)
-        }
+        override fun getItem(position: Int): Fragment = PagerFragment.newInstance(
+            imageData[position].resourceId,
+            imageData[position].title,
+            position == count - 1
+        )
 
     }
 }

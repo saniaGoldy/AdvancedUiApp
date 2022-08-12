@@ -15,14 +15,14 @@ class MultipleViewRecyclerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when(viewType){
-            DataTypes.Page.typeId -> PageViewHolder(FragmentPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-            DataTypes.Text.typeId -> TVViewHolder(TvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            ViewType.Page.typeId -> PageViewHolder(FragmentPagerBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            ViewType.Text.typeId -> TVViewHolder(TvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             else -> ButtonViewHolder(ButtonItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return itemData[position].getType().typeId
+        return itemData[position].type.typeId
     }
 
     override fun getItemCount(): Int {
