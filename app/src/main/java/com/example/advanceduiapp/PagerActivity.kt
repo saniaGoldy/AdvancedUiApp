@@ -7,7 +7,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.ViewPager
 import com.example.advanceduiapp.data.PageData
 import com.example.advanceduiapp.databinding.ActivityPagerBinding
 import com.example.advanceduiapp.ui.pager.PagerFragment
@@ -15,7 +14,6 @@ import com.example.advanceduiapp.ui.pager.PagerViewModel
 
 class PagerActivity : AppCompatActivity() {
 
-    private lateinit var pager: ViewPager
     private lateinit var binding: ActivityPagerBinding
     private val viewModel: PagerViewModel by viewModels()
 
@@ -25,15 +23,19 @@ class PagerActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        pager = findViewById(R.id.view_pager)
-        val pagerAdapter = ImagePagerAdapter(supportFragmentManager, viewModel.imageMap)
-        pager.adapter = pagerAdapter
-
-        viewModel.showMultipleViewRecyclerFragment.observe(this) {
-            if (it) {
+        viewModel.showMultipleViewRecyclerFragment.observe(this) { showMultipleViewRecycler: Boolean ->
+            if (showMultipleViewRecycler) {
                 showRecyclerFragment()
             }
         }
+
+        viewModel.imageMap.observe(this){ imageMap: List<PageData> ->
+            updateViewPager(imageMap)
+        }
+    }
+
+    private fun updateViewPager(imageMap: List<PageData>){
+        binding.viewPager.adapter = ImagePagerAdapter(supportFragmentManager, imageMap)
     }
 
     private fun showRecyclerFragment(){
@@ -42,7 +44,10 @@ class PagerActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (pager.currentItem == 0 || binding.fragmentContainerView.isVisible) super.onBackPressed() else pager.currentItem = pager.currentItem - 1
+        with(binding){
+            if (viewPager.currentItem == 0 || binding.fragmentContainerView.isVisible) super.onBackPressed() else viewPager.currentItem =
+                viewPager.currentItem - 1
+        }
     }
 
     inner class ImagePagerAdapter(fragmentManager: FragmentManager, private val imageData: List<PageData>) :

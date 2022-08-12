@@ -17,6 +17,6 @@ class ListActivity : AppCompatActivity() {
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        binding.imagesList.adapter = RecyclerViewAdapter(viewModel.imageMap)
+        viewModel.imageMap.observe(this){ imageMap -> binding.imagesList.adapter = RecyclerViewAdapter(imageMap) }
     }
 }
