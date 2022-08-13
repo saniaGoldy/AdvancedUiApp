@@ -1,20 +1,10 @@
 # AdvancedUiApp
 Task
 
-Create Activity, which contains DrawerLayout with NavigationView
+1.	Создать ресурсы со сложным набором квалификаторов(3-4) и продемонстрировать их работу.
+Например: language/Layout direction/Screen orientation/night mode.
 
-Add to NavigationView header and menu with 3 buttons
+2.	Схэндлить вручную смену конфигурации на каком-нибудь из экранов в вашем приложении. (Установите android:configChanges="orientation|screenSize« для вашего экрана.
+Переопределите метод onConfigurationChanged и посмотрите как он работает во время изменения ориентации экрана.)
 
-First button must navigate to another activity with implemented ViewPager (or ViewPager2). ViewPager contains 3 fragments, each of them contains ConstraintLayout with any image and any title.
-
-Second button must navigate to another activity with WebView. WebView after opening must display website https://developer.android.com/
-
-Third button must navigate to another activity with RecyclerView, which contains a list of the same images and titles as in ViewPager. Layout of item in list can be any.
-
-Advanced task
-
-On the previous task create 4 fragment, it should be opened by clicking in the button on the 3 fragment
-
-Create a recyclerView with multiple view type
-
-Create at least 3 recycler types and handle it.
+3.	Extra Попробовать создать AnimatedVectorDrawable из обычной векторной иконки.
