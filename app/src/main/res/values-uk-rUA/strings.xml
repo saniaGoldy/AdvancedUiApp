@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AdvancedUiApp</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="menu_gallery">Галерея</string>
+    <string name="menu_slideshow">Слайдшоу</string>
+    <string name="menu_pager">Пейджер</string>
+    <string name="menu_web_page">Веб сторінка</string>
+    <string name="homelander_phrase">Справжні герої це ви</string>
+    <string name="butcher_greeting">Здоров був</string>
+    <string name="menu_images_list">Список картинок</string>
+    <string name="home">Додому</string>
+</resources>
