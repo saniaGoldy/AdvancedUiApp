@@ -6,12 +6,14 @@
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable-uk-rUA-ldltr-port-night/ic_menu_camera.xml" value="0.129" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable-uk-rUA-ldltr-port-night/ic_menu_gallery.xml" value="0.129" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable-uk-rUA-ldltr-port-night/ic_menu_slideshow.xml" value="0.2405" />
+        <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/animated_vector.xml" value="0.147" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2405" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2405" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.252" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2405" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/ic_storm_trooper_background.xml" value="0.1275" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/side_nav_bar.xml" value="0.2405" />
+        <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/drawable/vec.xml" value="0.2215" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout-land-night-keyshidden-v29/fragment_pager.xml" value="0.29508196721311475" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout-land-notnight-keyshidden-v29/fragment_pager.xml" value="0.29508196721311475" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout-land/fragment_pager.xml" value="0.13125" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/activity_main2.xml" value="0.1160081053698075" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/activity_pager.xml" value="0.1" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/activity_web_page.xml" value="0.11666666666666667" />
+        <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/app_bar_main.xml" value="0.19581017528858485" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/app_bar_main2.xml" value="0.22826086956521738" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/button_item.xml" value="0.253125" />
         <entry key="..\:/Sania/Projects/AndroidStudio/AdvancedUiApp/app/src/main/res/layout/content_main.xml" value="0.1160081053698075" />
