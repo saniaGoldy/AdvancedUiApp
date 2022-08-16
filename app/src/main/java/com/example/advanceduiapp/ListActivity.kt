@@ -7,9 +7,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.advanceduiapp.adapters.RecyclerViewAdapter
 import com.example.advanceduiapp.databinding.ActivityListBinding
+import com.example.advanceduiapp.model.ConfigurationActivity
 import com.example.advanceduiapp.ui.pager.PagerViewModel
 
-class ListActivity : AppCompatActivity() {
+class ListActivity : ConfigurationActivity() {
 
     private val viewModel: PagerViewModel by viewModels()
     private lateinit var binding:ActivityListBinding
@@ -22,13 +23,4 @@ class ListActivity : AppCompatActivity() {
         viewModel.imageMap.observe(this){ imageMap -> binding.imagesList.adapter = RecyclerViewAdapter(imageMap) }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show()
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show()
-        }
-    }
 }

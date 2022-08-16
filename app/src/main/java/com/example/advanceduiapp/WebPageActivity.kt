@@ -3,8 +3,9 @@ package com.example.advanceduiapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
+import com.example.advanceduiapp.model.ConfigurationActivity
 
-class WebPageActivity : AppCompatActivity() {
+class WebPageActivity : ConfigurationActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val webView = WebView(this)

@@ -3,11 +3,12 @@ package com.example.advanceduiapp.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView.*
-import com.example.advanceduiapp.data.*
+import androidx.recyclerview.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.advanceduiapp.databinding.ButtonItemBinding
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 import com.example.advanceduiapp.databinding.TvItemBinding
+import com.example.advanceduiapp.model.data.*
 
 class MultipleViewRecyclerAdapter(
     private val itemData: List<ItemData>

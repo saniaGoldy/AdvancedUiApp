@@ -14,9 +14,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.example.advanceduiapp.databinding.ActivityMainBinding
+import com.example.advanceduiapp.model.ConfigurationActivity
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : ConfigurationActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -89,15 +90,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show()
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show()
-        }
     }
 }

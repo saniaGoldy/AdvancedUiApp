@@ -3,8 +3,8 @@ package com.example.advanceduiapp.ui.multiViewRecycler
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.advanceduiapp.R
-import com.example.advanceduiapp.data.PageData
-import com.example.advanceduiapp.data.TextData
+import com.example.advanceduiapp.model.data.PageData
+import com.example.advanceduiapp.model.data.TextData
 
 class MultipleViewRecyclerViewModel: ViewModel() {
     val itemsData = MutableLiveData(

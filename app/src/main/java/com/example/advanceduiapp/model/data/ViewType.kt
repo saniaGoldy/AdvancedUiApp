@@ -1,4 +1,4 @@
-package com.example.advanceduiapp.data
+package com.example.advanceduiapp.model.data
 
 enum class ViewType(val typeId: Int) {
     Page(0),

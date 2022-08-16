@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.advanceduiapp.R
-import com.example.advanceduiapp.data.PageData
+import com.example.advanceduiapp.model.data.PageData
 
 class PagerViewModel: ViewModel() {
     private val _showMultipleViewRecyclerFragment = MutableLiveData(false)

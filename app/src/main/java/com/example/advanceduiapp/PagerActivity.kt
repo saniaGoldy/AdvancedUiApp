@@ -7,12 +7,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.example.advanceduiapp.data.PageData
+import com.example.advanceduiapp.model.data.PageData
 import com.example.advanceduiapp.databinding.ActivityPagerBinding
+import com.example.advanceduiapp.model.ConfigurationActivity
 import com.example.advanceduiapp.ui.pager.PagerFragment
 import com.example.advanceduiapp.ui.pager.PagerViewModel
 
-class PagerActivity : AppCompatActivity() {
+class PagerActivity : ConfigurationActivity() {
 
     private lateinit var binding: ActivityPagerBinding
     private val viewModel: PagerViewModel by viewModels()

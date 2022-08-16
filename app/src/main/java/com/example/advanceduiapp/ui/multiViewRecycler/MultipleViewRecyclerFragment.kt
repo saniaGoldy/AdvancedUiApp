@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.advanceduiapp.adapters.MultipleViewRecyclerAdapter
-import com.example.advanceduiapp.data.ItemData
-import com.example.advanceduiapp.data.ToastButtonData
+import com.example.advanceduiapp.model.data.ItemData
+import com.example.advanceduiapp.model.data.ToastButtonData
 import com.example.advanceduiapp.databinding.FragmentMultipleViewRecyclerBinding
 
 class MultipleViewRecyclerFragment : Fragment() {
