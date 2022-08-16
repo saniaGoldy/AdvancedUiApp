@@ -7,7 +7,7 @@ import com.example.advanceduiapp.R
 import com.example.advanceduiapp.data.PageData
 
 class PagerViewModel: ViewModel() {
-    private val _showMultipleViewRecyclerFragment = MutableLiveData<Boolean>(false)
+    private val _showMultipleViewRecyclerFragment = MutableLiveData(false)
     val showMultipleViewRecyclerFragment: LiveData<Boolean> get() = _showMultipleViewRecyclerFragment
 
     val imageMap = MutableLiveData(
