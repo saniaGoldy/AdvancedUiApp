@@ -37,19 +37,6 @@ class MultipleViewRecyclerAdapter(
         }
     }
 
-    inner class PageViewHolder(
-        binding: FragmentPagerBinding
-    ) : ViewHolder(binding.root) {
-
-        private val itemTitle = binding.textSlideshow
-        private val itemImage = binding.pagerImageView
-
-        fun bind(item: PageData) {
-            itemTitle.text = item.title
-            itemImage.setImageResource(item.resourceId)
-        }
-    }
-
 
     inner class TVViewHolder(binding: TvItemBinding): ViewHolder(binding.root){
 
@@ -61,8 +48,24 @@ class MultipleViewRecyclerAdapter(
     }
 
 
+    inner class PageViewHolder(
+        binding: FragmentPagerBinding
+    ) : ViewHolder(binding.root) {
+
+        private val itemTitle = binding.textSlideshow
+
+        private val itemImage = binding.pagerImageView
+        fun bind(item: PageData) {
+            itemTitle.text = item.title
+            itemImage.setImageResource(item.resourceId)
+        }
+    }
+
+
     inner class ButtonViewHolder(binding: ButtonItemBinding): ViewHolder(binding.root) {
+
         private val itemButton = binding.itemButton
+
         fun bind(item: ToastButtonData) {
             itemButton.setOnClickListener { Toast.makeText(item.context, item.message, Toast.LENGTH_SHORT).show() }
         }
