@@ -16,6 +16,7 @@ class PagerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPagerBinding
     private val viewModel: PagerViewModel by viewModels()
+    private val adapter = ImagePagerAdapter(supportFragmentManager, listOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,8 @@ class PagerActivity : AppCompatActivity() {
     }
 
     private fun updateViewPager(imageMap: List<PageData>){
-        binding.viewPager.adapter = ImagePagerAdapter(supportFragmentManager, imageMap)
+        adapter.update(imageMap)
+        binding.viewPager.adapter = adapter
     }
 
     private fun swapPagerWithRecycler(){
@@ -49,7 +51,7 @@ class PagerActivity : AppCompatActivity() {
         else viewPager.currentItem = viewPager.currentItem - 1
     }
 
-    inner class ImagePagerAdapter(fragmentManager: FragmentManager, private val imageData: List<PageData>) :
+    inner class ImagePagerAdapter(fragmentManager: FragmentManager, private var imageData: List<PageData>) :
         FragmentStatePagerAdapter(fragmentManager) {
         override fun getCount(): Int = imageData.size
         override fun getItem(position: Int): Fragment = PagerFragment.newInstance(
@@ -57,6 +59,8 @@ class PagerActivity : AppCompatActivity() {
             imageData[position].title,
             position == count - 1
         )
-
+        fun update(imageData: List<PageData>){
+            this.imageData = imageData
+        }
     }
 }

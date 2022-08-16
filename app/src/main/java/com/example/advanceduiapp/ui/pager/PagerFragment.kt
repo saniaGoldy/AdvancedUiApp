@@ -27,11 +27,11 @@ class PagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding){
-            textSlideshow.text = requireArguments().getString(titleTag)
-            pagerImageView.setImageResource(requireArguments().getInt(imageResourceTag))
+            textSlideshow.text = requireArguments().getString(TITLE_TAG)
+            pagerImageView.setImageResource(requireArguments().getInt(IMAGE_RESOURCE_TAG))
         }
 
-        if (requireArguments().getBoolean(showButtonTag)) {
+        if (requireArguments().getBoolean(SHOW_BUTTON_TAG)) {
             binding.button.visibility = View.VISIBLE
             binding.button.setOnClickListener {
                 viewModel.switchRecyclerFragmentVisibility()
@@ -45,9 +45,9 @@ class PagerFragment : Fragment() {
     }
 
     companion object {
-        private const val imageResourceTag = "imageResource"
-        private const val titleTag = "title"
-        private const val showButtonTag = "showButton"
+        private const val IMAGE_RESOURCE_TAG = "imageResource"
+        private const val TITLE_TAG = "title"
+        private const val SHOW_BUTTON_TAG = "showButton"
 
         fun newInstance(
             imageResource: Int,
@@ -56,9 +56,9 @@ class PagerFragment : Fragment() {
         ): PagerFragment =
             PagerFragment().apply {
                 arguments = bundleOf(
-                    imageResourceTag to imageResource,
-                    titleTag to title,
-                    showButtonTag to showButton
+                    IMAGE_RESOURCE_TAG to imageResource,
+                    TITLE_TAG to title,
+                    SHOW_BUTTON_TAG to showButton
                 )
             }
     }

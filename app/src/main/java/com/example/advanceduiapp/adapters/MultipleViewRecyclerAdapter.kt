@@ -40,21 +40,26 @@ class MultipleViewRecyclerAdapter(
     inner class PageViewHolder(
         binding: FragmentPagerBinding
     ) : ViewHolder(binding.root) {
-        private val itemTitle = binding.textSlideshow
 
+        private val itemTitle = binding.textSlideshow
         private val itemImage = binding.pagerImageView
+
         fun bind(item: PageData) {
             itemTitle.text = item.title
             itemImage.setImageResource(item.resourceId)
         }
     }
 
+
     inner class TVViewHolder(binding: TvItemBinding): ViewHolder(binding.root){
+
         private val itemTV = binding.itemTV
+
         fun bind(item: TextData){
             itemTV.text = item.text
         }
     }
+
 
     inner class ButtonViewHolder(binding: ButtonItemBinding): ViewHolder(binding.root) {
         private val itemButton = binding.itemButton
