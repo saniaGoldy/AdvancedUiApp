@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.advanceduiapp.data.PageData
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
-class RecyclerViewAdapter(private val data: List<PageData>) :
+class RecyclerViewAdapter(private var data: List<PageData>) :
     RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
@@ -16,6 +16,10 @@ class RecyclerViewAdapter(private val data: List<PageData>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(data[position])
 
     override fun getItemCount(): Int = data.size
+
+    fun update(data: List<PageData>){
+        this.data = data
+    }
 
     inner class ViewHolder(
         binding: FragmentPagerBinding
