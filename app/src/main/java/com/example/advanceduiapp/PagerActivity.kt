@@ -30,14 +30,18 @@ class PagerActivity : AppCompatActivity() {
             }
         }
 
+        binding.viewPager.adapter = adapter
+
         viewModel.imageMap.observe(this){ imageMap: List<PageData> ->
             updateViewPager(imageMap)
         }
     }
 
     private fun updateViewPager(imageMap: List<PageData>){
-        adapter.update(imageMap)
-        binding.viewPager.adapter = adapter
+        with(adapter){
+            update(imageMap)
+            notifyDataSetChanged()
+        }
     }
 
     private fun swapPagerWithRecycler(){
