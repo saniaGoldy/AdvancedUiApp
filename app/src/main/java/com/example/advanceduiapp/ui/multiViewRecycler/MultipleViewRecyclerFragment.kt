@@ -8,14 +8,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.advanceduiapp.adapters.MultipleViewRecyclerAdapter
-import com.example.advanceduiapp.model.data.ItemData
 import com.example.advanceduiapp.databinding.FragmentMultipleViewRecyclerBinding
+import com.example.advanceduiapp.model.data.ItemData
 
 class MultipleViewRecyclerFragment : Fragment() {
 
     private var _binding: FragmentMultipleViewRecyclerBinding? = null
     private val binding get() = _binding!!
+
     private val viewModel: MultipleViewRecyclerViewModel by viewModels()
+    private val adapter = MultipleViewRecyclerAdapter(listOf())
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -26,7 +28,6 @@ class MultipleViewRecyclerFragment : Fragment() {
         _binding = FragmentMultipleViewRecyclerBinding.inflate(inflater, container, false)
         val root = binding.root
 
-        val adapter = MultipleViewRecyclerAdapter(listOf())
         binding.multipleViewTypeList.adapter = adapter
         viewModel.itemsData.observe(this.viewLifecycleOwner){ itemsData: List<ItemData> ->
             adapter.update(itemsData)
