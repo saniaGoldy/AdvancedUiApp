@@ -1,24 +1,29 @@
 <resources>
     <string name="app_name">AdvancedUiApp</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
+    <string name="menu_home" translatable="false">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_pager">pager</string>
     <string name="menu_web_page">web page</string>
     <string name="menu_images_list">images list</string>
-    <string name="wallpaper">wallpaper</string>
-    <string name="go_to_frag4">Go To Frag4</string>
+    <string name="wallpaper" translatable="false">wallpaper</string>
+    <string name="go_to_frag4" translatable="false">Go To Frag4</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tvitem_text">TvItem</string>
-    <string name="item_button">Item Button</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="tvitem_text" translatable="false">TvItem</string>
+    <string name="item_button" translatable="false">Item Button</string>
+    <string name="ciryImageTitle" translatable="false">CyberCiri</string>
+
     <string name="butcher_greeting">Oi</string>
     <string name="homelander_phrase">You\'re the real hero</string>
+    <string name="Geralt_and_Ciri_Title">Geralt and Ciri</string>
+    <string name="Harley_Quinn">Harley Quinn</string>
+    <string name="home">Home</string>
 </resources>

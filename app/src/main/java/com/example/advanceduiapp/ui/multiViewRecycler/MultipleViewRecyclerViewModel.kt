@@ -4,10 +4,10 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.advanceduiapp.R
-import com.example.advanceduiapp.data.ItemData
-import com.example.advanceduiapp.data.PageData
-import com.example.advanceduiapp.data.TextData
-import com.example.advanceduiapp.data.ToastButtonData
+import com.example.advanceduiapp.model.data.ItemData
+import com.example.advanceduiapp.model.data.PageData
+import com.example.advanceduiapp.model.data.TextData
+import com.example.advanceduiapp.model.data.ToastButtonData
 
 class MultipleViewRecyclerViewModel(application: Application): AndroidViewModel(application) {
     private val appContext get() = getApplication<Application>().applicationContext

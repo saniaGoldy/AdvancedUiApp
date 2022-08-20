@@ -7,7 +7,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.example.advanceduiapp.data.PageData
+import com.example.advanceduiapp.model.data.PageData
 import com.example.advanceduiapp.databinding.ActivityPagerBinding
 import com.example.advanceduiapp.ui.pager.PagerFragment
 import com.example.advanceduiapp.ui.pager.PagerViewModel
@@ -32,15 +32,8 @@ class PagerActivity : AppCompatActivity() {
 
         binding.viewPager.adapter = adapter
 
-        viewModel.imageMap.observe(this){ imageMap: List<PageData> ->
-            updateViewPager(imageMap)
-        }
-    }
-
-    private fun updateViewPager(imageMap: List<PageData>){
-        with(adapter){
-            update(imageMap)
-            notifyDataSetChanged()
+        viewModel.imageMap.observe(this) { imageMap: List<PageData> ->
+            adapter.update(imageMap)
         }
     }
 
@@ -63,8 +56,10 @@ class PagerActivity : AppCompatActivity() {
             imageData[position].title,
             position == count - 1
         )
+
         fun update(imageData: List<PageData>){
             this.imageData = imageData
+            this.notifyDataSetChanged()
         }
     }
 }

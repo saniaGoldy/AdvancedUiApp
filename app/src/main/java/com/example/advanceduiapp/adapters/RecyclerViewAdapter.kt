@@ -1,9 +1,10 @@
 package com.example.advanceduiapp.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.advanceduiapp.data.PageData
+import com.example.advanceduiapp.model.data.PageData
 import com.example.advanceduiapp.databinding.FragmentPagerBinding
 
 class RecyclerViewAdapter(private var data: List<PageData>) :
@@ -17,8 +18,10 @@ class RecyclerViewAdapter(private var data: List<PageData>) :
 
     override fun getItemCount(): Int = data.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun update(data: List<PageData>){
         this.data = data
+        this.notifyDataSetChanged()
     }
 
     inner class ViewHolder(
